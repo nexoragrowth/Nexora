@@ -4,6 +4,7 @@ import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 import Cielo from "@/components/Cielo";
 import LuzPuntero from "@/components/LuzPuntero";
+import PixelMeta from "@/components/PixelMeta";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Cielo />
         <LuzPuntero />
         <MotionProvider>{children}</MotionProvider>
+        <PixelMeta />
       </body>
     </html>
   );
