@@ -3,12 +3,16 @@ import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { EMAIL } from "@/lib/contacto";
+import { hayPixel } from "@/lib/pixel";
 
 /* Política de privacidad: una sola para la web y para la página de los anuncios.
    Tiene que decir lo que de verdad se hace con los datos. Si se suma una herramienta de medición
-   o de publicidad, o cambia dónde se guardan las consultas, se actualiza acá antes de publicarlo. */
+   o de publicidad, o cambia dónde se guardan las consultas, se actualiza acá antes de publicarlo.
+   Lo del píxel de Meta se muestra solo si está prendido (NEXT_PUBLIC_META_PIXEL_ID), así la página
+   dice siempre lo que de verdad pasa. */
 
-const ACTUALIZADA = "27 de octubre de 2026";
+const PIXEL = hayPixel();
+const ACTUALIZADA = PIXEL ? "4 de noviembre de 2026" : "27 de octubre de 2026";
 
 export const metadata: Metadata = {
   title: "Política de privacidad · Nexora",
@@ -93,7 +97,10 @@ export default function Privacidad() {
               <ul className="list-disc pl-5 space-y-2">
                 <li>Vercel, donde está alojado este sitio.</li>
                 <li>Neon, la base de datos donde quedan guardadas las consultas del formulario de este sitio.</li>
-                <li>Meta (Facebook, Instagram y WhatsApp), si nos escribís por ahí o completás el formulario de un anuncio.</li>
+                <li>
+                  Meta (Facebook, Instagram y WhatsApp), si nos escribís por ahí o completás el formulario de un anuncio
+                  {PIXEL ? ", y por el píxel de Meta que usa este sitio (te lo contamos más abajo)" : ""}.
+                </li>
                 <li>Cal.com, si agendás la llamada desde el sitio.</li>
                 <li>Las herramientas en las que ordenamos las consultas que recibimos y nos avisamos entre nosotros.</li>
               </ul>
@@ -101,18 +108,47 @@ export default function Privacidad() {
             </Parte>
 
             <Parte titulo="Cookies y medición">
-              <p>
-                Este sitio no usa cookies para seguir a quien lo visita ni herramientas de publicidad. Como cualquier
-                sitio, el servicio que lo aloja registra datos técnicos de cada visita (por ejemplo, la dirección IP y el
-                navegador) para que funcione y sea seguro.
-              </p>
+              {PIXEL ? (
+                <>
+                  <p>
+                    Este sitio usa el píxel de Meta, una herramienta de publicidad de Meta (la empresa de Facebook,
+                    Instagram y WhatsApp). Sirve para saber si nuestros anuncios traen visitas y consultas, y para volver a
+                    mostrarles anuncios nuestros a quienes ya entraron. El píxel le avisa a Meta qué página abriste y si
+                    mandaste el formulario, tocaste el botón de WhatsApp o reservaste una llamada. No le mandamos tu
+                    nombre, tu WhatsApp ni nada de lo que escribís. Meta lo hace con sus cookies y con los datos de tu
+                    navegador (como la dirección IP), y puede unirlo con tu cuenta de Facebook o Instagram si la tenés. Lo
+                    que hace Meta con esos datos lo explica su{" "}
+                    <a
+                      href="https://www.facebook.com/privacy/policy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent underline underline-offset-4"
+                    >
+                      política de privacidad
+                    </a>
+                    .
+                  </p>
+                  <p>
+                    Si no querés que pase, podés bloquear las cookies de terceros en tu navegador o elegir en tu cuenta de
+                    Facebook o Instagram, en Configuración, que no se usen los datos de otros sitios para mostrarte
+                    anuncios. Como cualquier sitio, el servicio que lo aloja registra además datos técnicos de cada visita
+                    (por ejemplo, la dirección IP y el navegador) para que funcione y sea seguro.
+                  </p>
+                </>
+              ) : (
+                <p>
+                  Este sitio no usa cookies para seguir a quien lo visita ni herramientas de publicidad. Como cualquier
+                  sitio, el servicio que lo aloja registra datos técnicos de cada visita (por ejemplo, la dirección IP y
+                  el navegador) para que funcione y sea seguro.
+                </p>
+              )}
               <p>
                 En la página de nuestros anuncios contamos, sin datos personales, cuántas visitas llegan de cada anuncio,
                 cuántas personas empiezan y mandan el formulario, cuántas tocan el botón de WhatsApp, cuántas le dan play
                 al video y cuántas reservan una llamada (que hubo una reserva, sin el día ni la hora). De cada visita
                 guardamos también el dominio del sitio del que llegaste (por ejemplo, instagram.com), sin la dirección
-                completa. Para eso no usamos cookies ni guardamos tu IP, tu navegador ni nada en tu teléfono. La IP se usa
-                solo en el momento, para frenar envíos repetidos.
+                completa. Para ese conteo propio no usamos cookies ni guardamos tu IP, tu navegador ni nada en tu
+                teléfono. La IP se usa solo en el momento, para frenar envíos repetidos.
               </p>
               <p>
                 Si agendás una llamada, la agenda la maneja Cal.com, que puede usar sus propias cookies. Si en algún

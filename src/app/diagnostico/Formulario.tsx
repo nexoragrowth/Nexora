@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { EQUIPO, LARGOS, URGENCIA, esCalificada, validarConsulta, type Consulta } from "@/lib/diagnostico/consulta";
 import { contar } from "@/lib/diagnostico/evento";
+import { avisarAMeta } from "@/lib/pixel";
 import type { Origen } from "@/lib/diagnostico/origen";
 import Agenda from "./Agenda";
 import BotonWhatsapp from "./BotonWhatsapp";
@@ -61,6 +62,7 @@ export default function Formulario({ origen, whatsapp, calLink }: { origen: Orig
       if (r.ok && j.ok) {
         setCodigo(typeof j.codigo === "string" ? j.codigo : "");
         setEstado("hecho");
+        avisarAMeta("Lead");
         return;
       }
       setError(j.error || "No pudimos guardar tu consulta. Probá de nuevo en un rato.");

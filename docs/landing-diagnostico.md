@@ -26,6 +26,19 @@ El armado (28/10) toma la estructura de la referencia de funnel que pasó Lucas:
 
 Van en Production y en Preview. Si las dos usan la misma base, cada fila guarda su entorno y el panel muestra solo producción salvo que se toque "Sumar vistas previas".
 
+## El píxel de Meta
+
+Está en todo el sitio (menos `/diagnostico/panel`) y apagado mientras no exista la variable.
+
+| Variable | Para qué | Si falta |
+|---|---|---|
+| `NEXT_PUBLIC_META_PIXEL_ID` | El ID del píxel "Nexora Web" (solo dígitos), que crea Cogne en el Administrador de eventos del portfolio. Se lee al compilar: después de cargarla hay que volver a hacer el deploy | No se carga nada de Meta y `/privacidad` dice que no hay herramientas de publicidad |
+
+- **Qué manda:** `PageView` en cada página (también al navegar sin recargar), `Lead` cuando se guarda una consulta del formulario, `Contact` en cada clic a WhatsApp y `Schedule` cuando Cal.com avisa una reserva. Solo el nombre del evento: nunca nombre, WhatsApp ni lo que escribe la persona.
+- **La privacidad se acomoda sola:** `/privacidad` lee la misma variable. Con el píxel prendido cuenta que se usa, qué le llega a Meta y cómo evitarlo, y cambia la fecha de actualización.
+- **Cómo se prueba:** en la vista previa, con la extensión Meta Pixel Helper, o en el Administrador de eventos → Probar eventos.
+- **Los conteos propios no cambian:** siguen sin cookies y siguen siendo la cuenta que lee el juez.
+
 ## El aviso por WhatsApp
 
 Cada vez que entra una consulta, el número de Nexora le manda un WhatsApp a `DIAGNOSTICO_AVISO_A`. Le escribe solo a quien atiende, nunca a la persona que dejó la consulta.
@@ -91,6 +104,7 @@ Para lo orgánico, el mismo esquema a mano. Por ejemplo, la bio de Instagram: `?
 - **Evento:** el tipo, los UTM, el dominio del que vino (solo en la visita), la fecha y el entorno.
 - **Lo que no se guarda:** cookies de visitantes, IP, navegador ni nada en el teléfono. La IP se usa solo en memoria, para frenar pedidos seguidos.
 - **El panel:** usa una cookie propia, solo para quien entra con la clave.
+- **El píxel de Meta (si está prendido):** Meta pone sus cookies y recibe la página y el nombre del paso. Nexora no le pasa datos de la persona.
 - **El aviso:** pasa por WhatsApp el nombre, el número, el negocio, la urgencia y el origen de cada consulta. No guarda nada más.
 - **La agenda:** Cal.com recibe el nombre y el código de la consulta, y guarda lo que la persona escribe al reservar (su mail, por ejemplo). La política de privacidad tiene que nombrarlo.
 
