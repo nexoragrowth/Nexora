@@ -6,7 +6,7 @@ import { IconoCheck } from "../Iconos";
 /* Un equipo de especialistas, no una sola contratación (el "pool of senior specialists" de designme.agency).
    Roles sin nombres, sin fotos y sin cantidad: salen del reparto de dueños del 2026-10-22.
    Desde el 2026-11-07 va en una sola vista que cierra la idea: hablás con una persona y ella coordina
-   al resto. La comparación "una contratación contra un equipo" ya está en la sección Comparación. */
+   al resto. La tabla "contratar, freelancers, agencia o Nexora" se sacó el mismo día (pedido de Cogne). */
 
 const trazo = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
