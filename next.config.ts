@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     return [
       // La página /vsl-1 ya no existe: quien entre por un link viejo cae en la home.
       { source: "/vsl-1", destination: "/", permanent: true },
-      // El caso de MB Cell se sacó de la web (2026-11-07): los links viejos van a los casos.
-      { source: "/casos/mbcell", destination: "/#casos", permanent: false },
+      // El caso de MB Cell se sacó de la web (2026-11-07): los links viejos van a los proyectos.
+      { source: "/casos/mbcell", destination: "/#proyectos", permanent: false },
     ];
   },
   async rewrites() {
