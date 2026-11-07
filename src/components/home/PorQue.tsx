@@ -7,7 +7,7 @@ import { Flecha } from "../Iconos";
    cifras, acá van tres pruebas sin números, cada una con su link. */
 
 const PRUEBAS = [
-  { titulo: "Casos con nombre", texto: "Raquel, TrendSpot y Traslap, cada uno con la etapa en la que está.", link: "Ver proyectos", href: "/#proyectos" },
+  { titulo: "Casos con nombre", texto: "Raquel, TrendSpot y Traslap: lo que le armamos a cada uno y para qué le sirve.", link: "Ver proyectos", href: "/#proyectos" },
   { titulo: "Un proceso claro", texto: "Seis pasos, de la primera llamada a cada mes, con todo a la vista en tu portal.", link: "Ver los pasos", href: "/#como-funciona" },
   { titulo: "Webs y demos", texto: "Publicadas y demos, con la marca real de cada negocio.", link: "Ver webs", href: "/webs" },
 ];
