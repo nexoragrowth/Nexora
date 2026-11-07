@@ -4,9 +4,9 @@ import { Etiqueta, Resaltado } from "../Encabezado";
 import { EMAIL } from "@/lib/contacto";
 
 const PASOS = [
-  "Nos contás cómo trabaja tu negocio y qué te frena.",
-  "Te hacemos las preguntas para entender dónde se te va el tiempo o la plata.",
-  "Te presentamos una propuesta por escrito, con lo que se entrega y cómo se mide.",
+  "Respondés unas preguntas cortas sobre tu negocio.",
+  "En la llamada vemos cómo trabajás, qué te frena y te decimos el precio.",
+  "Si tiene sentido, arrancamos con tu suscripción y tu portal.",
 ];
 
 export default function Cierre() {
@@ -18,10 +18,13 @@ export default function Cierre() {
 
         <div className="relative grid gap-10 p-7 sm:p-10 md:p-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <Etiqueta>Contacto</Etiqueta>
+            <Etiqueta>Llegaste al final, así que…</Etiqueta>
             <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.1rem)] font-extrabold leading-[1.06] text-text-primary">
-              Empecemos por <Resaltado>tu negocio</Resaltado>
+              Contanos qué querés <Resaltado>hacer crecer</Resaltado>
             </h2>
+            <p className="mt-5 max-w-[520px] text-[17px] leading-relaxed text-text-secondary">
+              Un equipo de sistemas y crecimiento, todos los meses, sin contratar uno interno.
+            </p>
             <ol className="mt-8 space-y-4">
               {PASOS.map((p, i) => (
                 <li key={p} className="flex gap-4">
@@ -36,7 +39,7 @@ export default function Cierre() {
 
           <div className="rounded-2xl border border-border-strong bg-bg-primary/70 backdrop-blur p-6 sm:p-8">
             <p className="text-[20px] font-display font-bold text-text-primary">Hablemos</p>
-            <p className="mt-2 text-[15px] text-text-secondary">Una llamada para conocernos. Sin compromiso.</p>
+            <p className="mt-2 text-[15px] text-text-secondary">Una llamada para conocer tu negocio. Sin compromiso.</p>
             <BotonesContacto className="mt-6 flex-col items-stretch [&>*]:w-full" />
             <p className="mt-5 text-[13.5px] text-text-muted">
               Si preferís escribir:{" "}

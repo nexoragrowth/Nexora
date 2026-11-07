@@ -28,17 +28,17 @@ export default function PaginaCaso({
   return (
     <>
       <Header />
-      <main className="relative pt-[68px]">
+      <main className="relative pt-[68px] overflow-x-clip">
         <div className="absolute inset-x-0 top-0 h-[520px] grid-bg pointer-events-none" aria-hidden="true" />
         <div className="absolute left-1/2 -translate-x-1/2 top-[-120px] w-[760px] h-[480px] glow-accent pointer-events-none" aria-hidden="true" />
 
         <section className="relative mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-16 md:pt-16">
           <Link
-            href="/#casos"
+            href="/#proyectos"
             className="inline-flex items-center gap-2 text-[14px] text-text-secondary hover:text-text-primary transition-colors"
           >
             <Flecha className="w-4 h-4 rotate-180" />
-            Todos los casos
+            Todos los proyectos
           </Link>
 
           <div className={`mt-8 grid gap-10 items-center ${imagen ? "md:grid-cols-[1.15fr_0.85fr]" : ""}`}>

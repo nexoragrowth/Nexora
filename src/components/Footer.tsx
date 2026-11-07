@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <Image src="/logo_white.png" alt="Nexora" width={4544} height={616} className="h-[20px] w-auto mb-5" />
           <p className="text-[15px] text-text-secondary max-w-[300px] leading-relaxed">
-            Instalamos la estructura que le falta a tu negocio. Desde La Plata.
+            Tu equipo de sistemas y crecimiento, sin contratar uno interno. Desde La Plata.
           </p>
         </div>
 
@@ -25,6 +25,11 @@ export default function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link href="/webs" className="text-[14px] text-text-secondary hover:text-text-primary transition-colors">
+                Webs y demos
+              </Link>
+            </li>
           </ul>
         </div>
 

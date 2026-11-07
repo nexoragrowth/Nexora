@@ -13,9 +13,14 @@ export function Etiqueta({ children, className = "" }: { children: ReactNode; cl
   );
 }
 
+/* La coma de Plus Jakarta trae mucho aire a la izquierda: en los títulos grandes se acerca. */
+export function Coma() {
+  return <span className="coma">,</span>;
+}
+
 /* Palabra o frase resaltada dentro de un título. */
 export function Resaltado({ children }: { children: ReactNode }) {
-  return <span className="text-gradient-accent italic pr-[0.08em]">{children}</span>;
+  return <span className="text-gradient-accent italic">{children}</span>;
 }
 
 /* Encabezado de sección: píldora, título y bajada. */

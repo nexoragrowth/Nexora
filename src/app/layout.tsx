@@ -3,6 +3,7 @@ import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 import Cielo from "@/components/Cielo";
+import Particulas from "@/components/Particulas";
 import LuzPuntero from "@/components/LuzPuntero";
 import PixelMeta from "@/components/PixelMeta";
 
@@ -21,9 +22,9 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const TITULO = "Nexora · La estructura que le falta a tu negocio";
+const TITULO = "Nexora Subscription · Tu equipo de sistemas y crecimiento";
 const DESCRIPCION =
-  "Agencia de La Plata para negocios que ya facturan. Primero entendemos cómo trabajás y dónde se te va el tiempo o la plata. Después construimos.";
+  "Contenido, publicidad, WhatsApp, CRM y sistemas a medida, con un mismo equipo y por una suscripción mensual. Sin contratar uno interno.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nexoragrowth.es"),
@@ -56,9 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${plusJakarta.variable} ${dmSans.variable} antialiased`}>
+    <html lang="es" className={`${plusJakarta.variable} ${dmSans.variable}`}>
+      <body className="antialiased">
         <Cielo />
+        <Particulas />
         <LuzPuntero />
         <MotionProvider>{children}</MotionProvider>
         <PixelMeta />
