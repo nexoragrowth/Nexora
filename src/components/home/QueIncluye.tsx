@@ -11,7 +11,7 @@ const PILARES: { titulo: string; bajada: string; items: string[]; prueba: string
   {
     titulo: "Atraemos",
     bajada: "Que te conozcan los clientes que buscás.",
-    items: ["Contenido en video y carruseles", "Campañas en Meta", "Pautamos lo que ya funcionó en orgánico"],
+    items: ["Contenido en video y carruseles", "Campañas en Meta", "Webs y landings a tu medida"],
     prueba: "La inversión en publicidad la pagás aparte",
     icono: <path {...trazo} d="M4 13.5V10.5l11-5v13l-11-5ZM15 9.5h2.5a2.5 2.5 0 0 1 0 5H15M7 14l1.5 5h2.5L9.5 14" />,
   },
@@ -25,8 +25,8 @@ const PILARES: { titulo: string; bajada: string; items: string[]; prueba: string
   {
     titulo: "Organizamos",
     bajada: "Que el negocio no dependa de tu memoria.",
-    items: ["CRM y agenda", "Stock, ventas y cobros", "Sistemas a medida de cómo trabajás"],
-    prueba: "La gestión de MB Cell y el cálculo de pagos de Traslap",
+    items: ["CRM y agenda", "Stock, ventas y liquidaciones", "Sistemas a medida de cómo trabajás"],
+    prueba: "El stock de TrendSpot y las liquidaciones de Traslap",
     icono: (
       <>
         <rect {...trazo} x="3.5" y="4" width="7" height="7" rx="1.5" />

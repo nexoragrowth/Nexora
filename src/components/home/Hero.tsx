@@ -7,7 +7,7 @@ import Vitrina from "./Vitrina";
    Debajo del botón, una franja de pruebas como la de la referencia, sin cifras. */
 
 const PRUEBAS = [
-  { titulo: "Casos reales", texto: "Dra. Raquel Rodríguez · MB Cell · Traslap" },
+  { titulo: "Casos reales", texto: "Dra. Raquel Rodríguez · TrendSpot · Traslap" },
   { titulo: "Mes a mes", texto: "Se pausa o se cancela cuando quieras" },
   { titulo: "Todo a la vista", texto: "Un portal con lo que se hace y lo que falta" },
 ];

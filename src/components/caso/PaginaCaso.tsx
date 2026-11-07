@@ -28,7 +28,7 @@ export default function PaginaCaso({
   return (
     <>
       <Header />
-      <main className="relative pt-[68px]">
+      <main className="relative pt-[68px] overflow-x-clip">
         <div className="absolute inset-x-0 top-0 h-[520px] grid-bg pointer-events-none" aria-hidden="true" />
         <div className="absolute left-1/2 -translate-x-1/2 top-[-120px] w-[760px] h-[480px] glow-accent pointer-events-none" aria-hidden="true" />
 
