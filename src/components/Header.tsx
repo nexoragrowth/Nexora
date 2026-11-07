@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CalProvider from "./CalProvider";
-import { BotonAgenda, BotonInstagram, BotonWhatsapp } from "./BotonesContacto";
-import { hayAgenda, hayWhatsapp } from "@/lib/contacto";
+import { BotonLlamada, BotonWhatsapp } from "./BotonesContacto";
 import { SECCIONES } from "@/lib/secciones";
 
 /* Menú fijo arriba. En el celular se abre un panel con las secciones y los botones. */
@@ -39,7 +37,6 @@ export default function Header() {
         conFondo || abierto ? "bg-bg-primary/80 backdrop-blur-xl border-b border-border" : "border-b border-transparent"
       }`}
     >
-      <CalProvider />
       {/* En escritorio, al bajar, la barra se achica y queda como una píldora de vidrio flotando */}
       <div
         className={`mx-auto px-4 sm:px-6 h-[68px] flex items-center justify-between gap-6 transition-all duration-500 ease-out ${
@@ -65,14 +62,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          {hayWhatsapp && hayAgenda && <BotonWhatsapp tam="md" texto="WhatsApp" />}
-          {hayAgenda ? (
-            <BotonAgenda tam="md" />
-          ) : hayWhatsapp ? (
-            <BotonWhatsapp tam="md" destacado texto="Escribinos" />
-          ) : (
-            <BotonInstagram tam="md" />
-          )}
+          <BotonWhatsapp tam="md" texto="WhatsApp" />
+          <BotonLlamada tam="md" />
         </div>
 
         <button
@@ -108,9 +99,8 @@ export default function Header() {
             ))}
           </nav>
           <div className="px-4 py-6 flex flex-col gap-3" onClick={cerrar}>
-            <BotonAgenda className="w-full" />
-            <BotonWhatsapp className="w-full" destacado={!hayAgenda} />
-            {!hayAgenda && !hayWhatsapp && <BotonInstagram className="w-full" />}
+            <BotonLlamada className="w-full" />
+            <BotonWhatsapp className="w-full" />
           </div>
         </div>
       )}

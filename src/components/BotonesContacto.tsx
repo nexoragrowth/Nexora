@@ -1,8 +1,9 @@
-import { CAL_LINK, INSTAGRAM_DM_URL, hayAgenda, hayWhatsapp, whatsappUrl } from "@/lib/contacto";
-import { Flecha, IconoInstagram, IconoWhatsapp } from "./Iconos";
+import Link from "next/link";
+import { hayWhatsapp, whatsappUrl } from "@/lib/contacto";
+import { Flecha, IconoWhatsapp } from "./Iconos";
 
-/* Los dos llamados de la web: agendar la llamada y escribir por WhatsApp.
-   El que no tenga destino cargado en lib/contacto no aparece; si no hay ninguno, queda el Instagram. */
+/* Los llamados de la web. El principal lleva a /agendar: unas preguntas cortas antes de la llamada,
+   y si califica elige día y horario ahí mismo. El WhatsApp aparece solo si hay número en lib/contacto. */
 
 type Tam = "md" | "lg";
 
@@ -17,19 +18,12 @@ const primario =
 const secundario =
   "border border-border-strong bg-white/[0.04] backdrop-blur-md text-text-primary hover:bg-white/[0.08] hover:border-white/25";
 
-export function BotonAgenda({ tam = "lg", texto = "Agendá tu llamada", className = "" }: { tam?: Tam; texto?: string; className?: string }) {
-  if (!hayAgenda) return null;
+export function BotonLlamada({ tam = "lg", texto = "Agendá una llamada", className = "" }: { tam?: Tam; texto?: string; className?: string }) {
   return (
-    <button
-      type="button"
-      data-cal-namespace="llamada"
-      data-cal-link={CAL_LINK}
-      data-cal-config='{"layout":"month_view"}'
-      className={`${base} ${tamanos[tam]} ${primario} ${className}`}
-    >
+    <Link href="/agendar" className={`${base} ${tamanos[tam]} ${primario} ${className}`}>
       {texto}
       <Flecha />
-    </button>
+    </Link>
   );
 }
 
@@ -58,27 +52,12 @@ export function BotonWhatsapp({
   );
 }
 
-export function BotonInstagram({ tam = "lg", className = "" }: { tam?: Tam; className?: string }) {
-  return (
-    <a
-      href={INSTAGRAM_DM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${base} ${tamanos[tam]} ${primario} ${className}`}
-    >
-      <IconoInstagram />
-      Escribinos por Instagram
-    </a>
-  );
-}
-
-/* Los dos botones juntos: la llamada como principal y el WhatsApp al lado. */
+/* Los botones juntos: la llamada como principal y el WhatsApp al lado, si hay número. */
 export default function BotonesContacto({ tam = "lg", className = "" }: { tam?: Tam; className?: string }) {
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
-      <BotonAgenda tam={tam} />
-      <BotonWhatsapp tam={tam} destacado={!hayAgenda} />
-      {!hayAgenda && !hayWhatsapp && <BotonInstagram tam={tam} />}
+      <BotonLlamada tam={tam} />
+      <BotonWhatsapp tam={tam} />
     </div>
   );
 }
