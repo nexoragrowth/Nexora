@@ -36,6 +36,10 @@ const PREGUNTAS: { q: string; a: string; link?: { href: string; texto: string } 
     a: "Depende de la etapa de tu negocio y de cuánta capacidad necesitás. Lo vemos en la llamada y te lo decimos claro antes de arrancar. La inversión en publicidad va aparte y la pagás vos directo.",
   },
   {
+    q: "Ya trabajo con una agencia de contenido o de publicidad. ¿Me sirve?",
+    a: "Sí. No reemplazamos a tu agencia: sumamos las partes que faltan y las armamos para que funcionen con lo que ya hace. Por ejemplo, que las consultas que trae su publicidad se atiendan por WhatsApp y queden en tu CRM. Es la misma suscripción, con las partes que te faltan, y el precio te lo decimos en la llamada, en un solo número.",
+  },
+  {
     q: "¿Y si quiero pedir muchas cosas a la vez?",
     a: "Las anotamos todas y las ordenamos por prioridad. Trabajamos una mejora activa a la vez, para que cada cosa salga bien y se pueda medir. Los proyectos grandes se presupuestan aparte.",
   },

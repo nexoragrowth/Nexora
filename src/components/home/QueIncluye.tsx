@@ -5,6 +5,7 @@ import FadeUp from "../FadeUp";
 import Encabezado, { Resaltado } from "../Encabezado";
 import BotonesContacto from "../BotonesContacto";
 import { IconoCheck } from "../Iconos";
+import Complemento from "./Complemento";
 
 /* La suscripción (el "Pick a monthly plan" de designme.agency), sin montos: a la izquierda las
    cuatro partes del tablero y a la derecha la tarjeta de Nexora Subscription. El precio se dice en la llamada. */
@@ -40,7 +41,7 @@ const PARTES: { titulo: string; bajada: string; items: string[]; icono: ReactNod
   {
     titulo: "Optimizamos",
     bajada: "Que cada mes funcione mejor que el anterior.",
-    items: ["De dónde viene cada cliente", "Qué convierte y qué no", "Una mejora activa a la vez"],
+    items: ["Los números del mes: qué entró y qué se cerró", "Qué funciona y qué no", "Una mejora activa a la vez"],
     icono: <path {...trazo} d="M4 19.5h16M6.5 16l4-5 3 3 5-7M15 7h3.5v3.5" />,
   },
 ];
@@ -49,7 +50,7 @@ const TODOS_LOS_MESES: [string, string][] = [
   ["Una mejora activa a la vez", "Lo demás, anotado y ordenado por prioridad."],
   ["Un responsable de tu cuenta", "Tu contacto para todo lo del mes."],
   ["Tu portal", "Lo que se hace, lo que falta y lo que se entregó."],
-  ["Un reporte por mes", "Con los números de punta a punta."],
+  ["Un reporte por mes", "Con los números del mes."],
 ];
 
 function Item({ titulo, texto }: { titulo: string; texto?: string }) {
@@ -78,7 +79,7 @@ export default function QueIncluye() {
             Una suscripción, <Resaltado>cuatro partes</Resaltado>
           </>
         }
-        bajada="Mes a mes. Se pausa o se cancela cuando quieras. Las cuatro partes están disponibles; cada mes ponemos el foco donde más rinde."
+        bajada="Mes a mes. Se pausa o se cancela cuando quieras. Las cuatro partes están disponibles; cada mes ponemos el foco donde más rinde. Y si ya tenés una parte cubierta, sumamos las que faltan."
       />
 
       <FadeUp delay={0.06} className="mt-12 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -117,7 +118,7 @@ export default function QueIncluye() {
           </div>
           <p className="mt-5 text-[13.5px] leading-relaxed text-text-muted">
             La publicidad la pagás aparte, directo a Meta. Los proyectos grandes se presupuestan aparte. No vendemos horas:
-            vendemos un resultado y una capacidad por mes.
+            vendemos lo que se entrega y una capacidad por mes.
           </p>
         </div>
 
@@ -158,6 +159,8 @@ export default function QueIncluye() {
           </div>
         </div>
       </FadeUp>
+
+      <Complemento />
     </section>
   );
 }
