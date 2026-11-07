@@ -5,8 +5,8 @@ import { EMAIL } from "@/lib/contacto";
 
 const PASOS = [
   "Respondés unas preguntas cortas sobre tu negocio.",
-  "En la llamada vemos cómo trabajás y qué te frena.",
-  "Si tiene sentido, arrancamos con tu suscripción.",
+  "En la llamada vemos cómo trabajás, qué te frena y te decimos el precio.",
+  "Si tiene sentido, arrancamos con tu suscripción y tu portal.",
 ];
 
 export default function Cierre() {
@@ -18,10 +18,13 @@ export default function Cierre() {
 
         <div className="relative grid gap-10 p-7 sm:p-10 md:p-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <Etiqueta>Contacto</Etiqueta>
+            <Etiqueta>Llegaste al final, así que…</Etiqueta>
             <h2 className="mt-5 text-[clamp(2rem,4.4vw,3.1rem)] font-extrabold leading-[1.06] text-text-primary">
               Contanos qué querés <Resaltado>hacer crecer</Resaltado>
             </h2>
+            <p className="mt-5 max-w-[520px] text-[17px] leading-relaxed text-text-secondary">
+              Un equipo de sistemas y crecimiento, todos los meses, sin contratar uno interno.
+            </p>
             <ol className="mt-8 space-y-4">
               {PASOS.map((p, i) => (
                 <li key={p} className="flex gap-4">

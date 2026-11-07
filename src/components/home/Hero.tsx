@@ -1,20 +1,19 @@
 import BotonesContacto from "../BotonesContacto";
 import { Etiqueta, Resaltado } from "../Encabezado";
 import { Flecha } from "../Iconos";
-import Vitrina from "./Vitrina";
 
 /* Hero de Nexora Subscription (referencia: designme.agency). Sin precio: se habla en la llamada.
    Debajo del botón, una franja de pruebas como la de la referencia, sin cifras. */
 
 const PRUEBAS = [
-  { titulo: "Casos reales", texto: "Dra. Raquel Rodríguez · TrendSpot · Traslap" },
+  { titulo: "Un equipo, no una persona", texto: "Contenido, publicidad, WhatsApp y sistemas" },
   { titulo: "Mes a mes", texto: "Se pausa o se cancela cuando quieras" },
   { titulo: "Todo a la vista", texto: "Un portal con lo que se hace y lo que falta" },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative pt-[68px] overflow-hidden">
+    <section className="relative pt-[68px] pb-6 overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[760px] grid-bg opacity-60 pointer-events-none" aria-hidden="true" />
       <div
         className="absolute left-1/2 -translate-x-1/2 top-[-180px] w-[min(1000px,140vw)] h-[620px] glow-accent pointer-events-none"
@@ -66,10 +65,6 @@ export default function Hero() {
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="aparecer pt-14" style={{ animationDelay: "0.36s" }}>
-        <Vitrina />
       </div>
     </section>
   );

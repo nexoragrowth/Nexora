@@ -25,6 +25,11 @@ export default function Footer() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link href="/webs" className="text-[14px] text-text-secondary hover:text-text-primary transition-colors">
+                Webs y demos
+              </Link>
+            </li>
           </ul>
         </div>
 

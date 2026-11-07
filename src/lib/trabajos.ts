@@ -31,5 +31,5 @@ export const TRABAJOS: Trabajo[] = [
   { id: "mododiablo", nombre: "Modo Diablo", rubro: "Distribuidora de bebidas · CABA", tipo: "demo" },
 ];
 
-/* Los que van en la home. */
-export const DESTACADOS = ["trendspot", "raquel", "veredita", "chicapple", "balneario", "tita"];
+/* Los cuatro que van en la franja chica de la home (sección Proyectos). */
+export const DESTACADOS = ["raquel", "trendspot", "chicapple", "veredita"];

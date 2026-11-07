@@ -1,129 +1,142 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
 import FadeUp from "../FadeUp";
 import Encabezado, { Resaltado } from "../Encabezado";
 import { Flecha } from "../Iconos";
 
-/* Los sistemas que ya construyó el equipo, cada uno con su estado real (2026-11-07).
-   Sin cifras ni resultados: dónde se usa y en qué está. */
-
-const trazo = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+/* Lo que ya construimos (el "The tools change. The standard doesn't." de designme.agency): filas con el
+   rótulo a la izquierda y los sistemas a la derecha. En vez de herramientas de terceros, los sistemas
+   propios, cada uno con su estado real al 2026-11-07. La primera fila es el Portal, el diferencial. */
 
 type Estado = "En uso" | "En piloto" | "En construcción";
 
-const TONO: Record<Estado, string> = {
-  "En uso": "text-accent border-accent/25 bg-accent/10",
-  "En piloto": "text-sky-300 border-sky-300/25 bg-sky-400/10",
-  "En construcción": "text-amber-300 border-amber-300/25 bg-amber-400/10",
+const PUNTO: Record<Estado, string> = {
+  "En uso": "bg-accent",
+  "En piloto": "bg-sky-300",
+  "En construcción": "bg-amber-300",
 };
 
-const SISTEMAS: { nombre: string; texto: string; donde: string; estado: Estado; href?: string; icono: ReactNode }[] = [
+type Sistema = { nombre: string; texto: string; estado: Estado; href?: string };
+
+const FILAS: { parte: string; sistemas: Sistema[] }[] = [
   {
-    nombre: "Portal Nexora",
-    texto: "Clientes, proyectos, ventas, prospección, tareas y finanzas en un solo lugar. Cada proyecto tiene sus etapas, sus pedidos y sus decisiones.",
-    donde: "Con él trabaja todo el equipo",
-    estado: "En uso",
-    href: "/#portal",
-    icono: (
-      <>
-        <rect {...trazo} x="3.5" y="4.5" width="17" height="15" rx="2" />
-        <path {...trazo} d="M3.5 9h17M9 9v10.5" />
-      </>
-    ),
+    parte: "Atraemos",
+    sistemas: [
+      { nombre: "Content Engine", texto: "Lo que publica la competencia, el banco de ideas y los guiones de la semana, cada pieza en su estado.", estado: "En uso" },
+      { nombre: "Demos con tu marca", texto: "Analizamos el Instagram y la web de un negocio y armamos una demo con su marca real. Una persona la revisa antes de mostrarla.", estado: "En uso", href: "/webs" },
+    ],
   },
   {
-    nombre: "Content Engine",
-    texto: "Lo que publica la competencia, el banco de ideas, los guiones de la semana, los carruseles y el calendario de publicaciones.",
-    donde: "Con él armamos nuestro contenido",
-    estado: "En uso",
-    icono: <path {...trazo} d="M5 4.5h10l4 4v11H5v-15ZM15 4.5v4h4M8.5 12.5h7M8.5 16h5" />,
+    parte: "Convertimos",
+    sistemas: [
+      { nombre: "Turnos por WhatsApp", texto: "Turnos por WhatsApp al lado de la secretaria; lo urgente pasa a una persona.", estado: "En uso", href: "/casos/raquel" },
+      { nombre: "Ventas por WhatsApp", texto: "Todas las líneas en una bandeja, stock por IMEI, agenda atada al stock y un asistente con modo sombra.", estado: "En piloto", href: "/casos/trendspot" },
+    ],
   },
   {
-    nombre: "Ventas por WhatsApp",
-    texto: "Todas las líneas en una bandeja, stock por IMEI, agenda atada al stock, cotizador de canje y un asistente con modo sombra.",
-    donde: "TrendSpot",
-    estado: "En piloto",
-    href: "/casos/trendspot",
-    icono: <path {...trazo} d="M4 5.5h16v10H9l-5 4v-14ZM8.5 10.5h7" />,
+    parte: "Organizamos",
+    sistemas: [
+      { nombre: "Liquidaciones", texto: "Lee los envíos que ya exporta el negocio y calcula lo que se le paga a cada uno, sin IA en el cálculo.", estado: "En construcción", href: "/casos/traslap" },
+      { nombre: "Stock y agenda", texto: "Stock por unidad y turnos atados al stock, probados con datos de ejemplo.", estado: "En piloto", href: "/casos/trendspot" },
+    ],
   },
   {
-    nombre: "Turnos por WhatsApp",
-    texto: "Agenda, confirma, recuerda, cancela y reprograma turnos mirando la agenda del consultorio. Lo urgente, a una persona.",
-    donde: "Dra. Raquel Rodríguez",
-    estado: "En uso",
-    href: "/casos/raquel",
-    icono: (
-      <>
-        <rect {...trazo} x="4" y="5.5" width="16" height="14" rx="2" />
-        <path {...trazo} d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9 14.5l2 2 4-4" />
-      </>
-    ),
-  },
-  {
-    nombre: "Liquidaciones",
-    texto: "Lee los envíos que ya exporta el negocio y calcula lo que se le paga a cada uno, con tarifas y reglas a la vista. Sin IA en el cálculo.",
-    donde: "Traslap",
-    estado: "En construcción",
-    href: "/casos/traslap",
-    icono: <path {...trazo} d="M5 19.5h14M7 16V11M12 16V7M17 16v-3" />,
-  },
-  {
-    nombre: "Demos con tu marca",
-    texto: "Analizamos el Instagram y la web de un negocio y armamos una demo con su marca real. Una persona la revisa antes de mostrarla.",
-    donde: "Las demos de la sección Webs",
-    estado: "En uso",
-    href: "/webs",
-    icono: <path {...trazo} d="M4 6.5h16v11H4v-11ZM4 10h16M8 14h4" />,
+    parte: "Optimizamos",
+    sistemas: [
+      { nombre: "Vista del cliente en el Portal", texto: "Las etapas del proyecto, lo que hacemos nosotros y lo que necesitamos de vos.", estado: "En construcción" },
+      { nombre: "Recordatorios y derivaciones", texto: "Una pantalla con los recordatorios que salieron y lo que se le pasó a una persona.", estado: "En uso", href: "/casos/raquel" },
+    ],
   },
 ];
 
+const SECCIONES_PORTAL = ["Hoy", "Ventas", "Prospección", "Clientes", "Proyectos", "Tareas", "WhatsApp", "Finanzas"];
+
+function Ficha({ s }: { s: Sistema }) {
+  const cuerpo = (
+    <>
+      <span className="flex items-center justify-between gap-3">
+        <span className="font-display text-[15px] font-bold text-text-primary">{s.nombre}</span>
+        <span className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-text-muted shrink-0">
+          <span className={`w-1.5 h-1.5 rounded-full ${PUNTO[s.estado]}`} aria-hidden="true" />
+          {s.estado}
+        </span>
+      </span>
+      <span className="mt-1 block text-[13.5px] leading-snug text-text-secondary">{s.texto}</span>
+    </>
+  );
+  const clase = "group block rounded-xl border border-border bg-bg-card/60 px-4 py-3 transition-colors";
+  return s.href ? (
+    <Link href={s.href} className={`${clase} hover:border-accent/40`}>
+      {cuerpo}
+    </Link>
+  ) : (
+    <div className={clase}>{cuerpo}</div>
+  );
+}
+
 export default function Sistemas() {
   return (
-    <section id="sistemas" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
-      <Encabezado
-        etiqueta="Sistemas propios"
-        titulo={
-          <>
-            No arrancamos de cero: <Resaltado>ya lo construimos</Resaltado>
-          </>
-        }
-        bajada="Estos son los sistemas que armó el equipo. Lo que se construye para un negocio se reutiliza y se adapta al siguiente, con su marca y su forma de trabajar."
-      />
-
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {SISTEMAS.map((s, i) => {
-          const cuerpo = (
+    <section id="sistemas" className="relative border-y border-border bg-white/[0.012]">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
+        <Encabezado
+          etiqueta="Lo que ya construimos"
+          titulo={
             <>
-              <div className="flex items-start justify-between gap-3">
-                <span className="w-11 h-11 rounded-xl border border-accent/20 bg-accent/[0.07] text-accent flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
-                    {s.icono}
-                  </svg>
-                </span>
-                <span className={`rounded-full border px-2.5 py-1 text-[11.5px] font-semibold ${TONO[s.estado]}`}>{s.estado}</span>
-              </div>
-              <h3 className="mt-5 text-[20px] font-extrabold text-text-primary">{s.nombre}</h3>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-text-secondary">{s.texto}</p>
-              <p className="mt-auto pt-5 flex items-center justify-between gap-3 text-[13px] font-medium text-text-muted">
-                <span>{s.donde}</span>
-                {s.href && <Flecha className="w-4 h-4 shrink-0 text-accent transition-transform group-hover:translate-x-0.5" />}
-              </p>
+              No arrancamos de cero: <Resaltado>ya lo construimos</Resaltado>
             </>
-          );
-          const clase =
-            "group luz filo flex h-full flex-col rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm p-6 transition-colors";
-          return (
-            <FadeUp key={s.nombre} delay={(i % 3) * 0.05}>
-              {s.href ? (
-                <Link href={s.href} className={`${clase} hover:border-accent/40`}>
-                  {cuerpo}
-                </Link>
-              ) : (
-                <div className={clase}>{cuerpo}</div>
-              )}
-            </FadeUp>
-          );
-        })}
+          }
+          bajada="Lo que armamos para un negocio se reutiliza y se adapta al siguiente, con su marca y su forma de trabajar. Las herramientas cambian; los sistemas quedan."
+        />
+
+        <FadeUp delay={0.06} className="mt-12 divide-y divide-border border-y border-border">
+          {/* El Portal, destacado */}
+          <div id="portal" className="grid gap-5 py-7 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:gap-10">
+            <div>
+              <p className="flex items-center gap-2 font-display text-[18px] font-extrabold text-text-primary">
+                Portal Nexora
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/10 px-2 py-0.5 text-[11px] font-semibold text-accent">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent pulse-dot" aria-hidden="true" />
+                  En uso
+                </span>
+              </p>
+              <p className="mt-2 text-[14.5px] leading-relaxed text-text-secondary">
+                Donde pasa todo: ves qué se está haciendo, qué falta y qué se entregó, sin tener que preguntar.
+              </p>
+            </div>
+            <div>
+              <div className="flex flex-wrap gap-2">
+                {SECCIONES_PORTAL.map((s) => (
+                  <span key={s} className="rounded-lg border border-accent/20 bg-accent/[0.05] px-3 py-2 text-[13.5px] font-semibold text-text-primary">
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-3 text-[12.5px] text-text-muted">Son las secciones reales del Portal. Los datos de los clientes no se muestran.</p>
+            </div>
+          </div>
+
+          {FILAS.map((f) => (
+            <div key={f.parte} className="grid gap-4 py-6 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:gap-10 md:items-start">
+              <p className="font-display text-[16px] font-bold text-text-secondary md:pt-3">{f.parte}</p>
+              <div className="grid gap-2.5 sm:grid-cols-2">
+                {f.sistemas.map((s) => (
+                  <Ficha key={s.nombre} s={s} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </FadeUp>
+
+        <FadeUp delay={0.08} className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] text-text-muted">
+          {(Object.keys(PUNTO) as Estado[]).map((e) => (
+            <span key={e} className="inline-flex items-center gap-1.5">
+              <span className={`w-1.5 h-1.5 rounded-full ${PUNTO[e]}`} aria-hidden="true" />
+              {e}
+            </span>
+          ))}
+          <Link href="/webs" className="ml-auto inline-flex items-center gap-1.5 font-semibold text-accent">
+            Ver webs y demos <Flecha className="w-3.5 h-3.5" />
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );

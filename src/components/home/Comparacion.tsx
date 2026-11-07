@@ -1,17 +1,8 @@
 import FadeUp from "../FadeUp";
 import Encabezado, { Resaltado } from "../Encabezado";
 
-/* "Un equipo entero, no una contratación" (como el "pool of senior specialists" de la referencia).
-   La comparación es por cómo se trabaja, sin cifras ni nombres de otras agencias. */
-
-const PERFILES = [
-  "Responsable de tu cuenta",
-  "Sistemas y desarrollo",
-  "Contenido en video",
-  "Diseño y carruseles",
-  "Publicidad en Meta",
-  "Atención comercial",
-];
+/* Cómo se compara (el "How we compare" de designme.agency), sin barras de costo ni "por menos que una
+   contratación": no hay precio publicado. Comparación por cómo se trabaja, sin nombrar a nadie. */
 
 const OPCIONES = ["Contratar a alguien", "Freelancers sueltos", "Agencia tradicional", "Nexora Subscription"];
 
@@ -36,29 +27,17 @@ const FILAS: { tema: string; valores: string[] }[] = [
 
 export default function Comparacion() {
   return (
-    <section id="por-que" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
+    <section id="compara" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
       <div>
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">
-          <Encabezado
-            etiqueta="Por qué una suscripción"
-            titulo={
-              <>
-                Un equipo entero, <Resaltado>no una contratación</Resaltado>
-              </>
-            }
-            bajada="En vez de buscar, capacitar y coordinar a varias personas, cada tarea la hace el que mejor la sabe hacer, dentro del mismo equipo."
-          />
-          <FadeUp delay={0.08} className="flex flex-wrap gap-2.5 lg:justify-end">
-            {PERFILES.map((p) => (
-              <span
-                key={p}
-                className="rounded-full border border-accent/20 bg-accent/[0.06] px-3.5 py-1.5 text-[13.5px] font-medium text-accent"
-              >
-                {p}
-              </span>
-            ))}
-          </FadeUp>
-        </div>
+        <Encabezado
+          etiqueta="Cómo se compara"
+          titulo={
+            <>
+              Contratar, sumar freelancers, una agencia <Resaltado>o Nexora</Resaltado>
+            </>
+          }
+          bajada="Sin cifras: cómo se trabaja en cada caso."
+        />
 
         <FadeUp delay={0.1} className="mt-10 luz filo rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm overflow-hidden">
           {/* En el celular, cada fila es una tarjeta; desde sm, una tabla */}
