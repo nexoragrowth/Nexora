@@ -83,7 +83,7 @@ export default function Equipo() {
             Un equipo de especialistas, <Resaltado>no una sola contratación</Resaltado>
           </>
         }
-        bajada="Contenido, publicidad, WhatsApp y sistemas. Cada suscripción tiene un responsable de tu cuenta y la gente que el trabajo necesita, de un mismo equipo de La Plata."
+        bajada="Contenido, publicidad, WhatsApp y sistemas. Cada suscripción tiene un responsable de tu cuenta y la gente que el trabajo necesita."
       />
 
       <FadeUp delay={0.06} className="mt-12 rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm divide-y divide-border">
