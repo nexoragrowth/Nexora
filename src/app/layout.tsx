@@ -21,9 +21,9 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const TITULO = "Nexora · La estructura que le falta a tu negocio";
+const TITULO = "Nexora Subscription · Tu equipo de sistemas y crecimiento";
 const DESCRIPCION =
-  "Agencia de La Plata para negocios que ya facturan. Primero entendemos cómo trabajás y dónde se te va el tiempo o la plata. Después construimos.";
+  "Contenido, publicidad, WhatsApp, CRM y sistemas a medida, con un mismo equipo y por una suscripción mensual. Sin contratar uno interno.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nexoragrowth.es"),

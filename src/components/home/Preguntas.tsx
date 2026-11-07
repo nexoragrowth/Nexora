@@ -5,35 +5,40 @@ import { AnimatePresence, motion } from "framer-motion";
 import FadeUp from "../FadeUp";
 import Encabezado from "../Encabezado";
 
-/* Preguntas frecuentes: los textos que se aprobaron para la web el 2026-10-11, sin tocar. */
+/* Preguntas frecuentes de Nexora Subscription (2026-11-07). Sin precio, sin plazos y sin garantías:
+   el precio se dice en la llamada. */
 const PREGUNTAS = [
   {
-    q: "¿Reemplaza a quien atiende mi negocio?",
-    a: "No: lo libera. El asistente se hace cargo de lo repetitivo —contestar, agendar, recordar y confirmar— para que tu equipo se dedique al cliente que está adentro.",
+    q: "¿Qué es Nexora Subscription?",
+    a: "Un equipo de sistemas y crecimiento que trabaja para tu negocio todos los meses, por una suscripción mensual. En vez de contratar y coordinar a varias personas, tenés un responsable, un portal y un equipo que hace contenido, publicidad y sistemas.",
   },
   {
-    q: "¿Tengo que instalar o aprender algo?",
-    a: "Nada. Lo configuramos e instalamos nosotros sobre el WhatsApp que ya usás: vos solo nos pasás la info por audio o WhatsApp. En la propuesta te decimos cuándo estaría andando.",
+    q: "¿Cuánto sale?",
+    a: "Depende de la etapa de tu negocio y de cuánta capacidad necesitás. Lo vemos en la llamada y te lo decimos claro antes de arrancar. La inversión en publicidad va aparte y la pagás vos directo.",
   },
   {
-    q: "¿Y si responde cualquier cosa?",
-    a: "El asistente responde solo sobre tu negocio: turnos, horarios, ubicación, servicios y precios, con la información que cargamos. Lo que necesita criterio humano, te lo deriva.",
+    q: "¿Puedo pausar o cancelar?",
+    a: "Sí. Es mes a mes: podés pausar o cancelar cuando quieras, sin contratos largos.",
   },
   {
-    q: "¿Y si quien escribe quiere hablar con una persona?",
-    a: "Lo detecta y te pasa la conversación. Todo queda ordenado en un solo lugar.",
+    q: "¿Y si quiero pedir muchas cosas a la vez?",
+    a: "Las anotamos todas y las ordenamos por prioridad. Trabajamos una iniciativa activa a la vez, para que cada cosa salga bien y se pueda medir. Los proyectos grandes se presupuestan aparte.",
+  },
+  {
+    q: "¿Usan IA?",
+    a: "Sí, en todo lo que se puede acelerar: borradores, variantes, atención por WhatsApp y tareas que se repiten. Pero nada sale sin que una persona del equipo lo revise.",
+  },
+  {
+    q: "¿Reemplaza a mi equipo?",
+    a: "No: lo libera. Lo que armamos se queda con lo repetitivo y trabaja al lado de tu equipo, no en su lugar. Lo que necesita criterio lo resuelve una persona.",
   },
   {
     q: "¿Sirve para mi rubro?",
-    a: "Lo armamos a medida de cómo trabaja cada negocio. Hoy el caso andando es un consultorio de ortodoncia; si el tuyo es de otro rubro, lo vemos en la llamada.",
+    a: "Hoy trabajamos con un consultorio, un comercio de celulares y una empresa de logística, entre otros. Si el tuyo es de otro rubro, lo vemos en la llamada.",
   },
   {
-    q: "¿Cómo son los plazos y las condiciones?",
-    a: "Los plazos y las condiciones los vemos en la llamada y quedan por escrito en la propuesta.",
-  },
-  {
-    q: "¿Cómo sé qué voy a recibir?",
-    a: "Lo que se entrega y cómo se mide queda por escrito en la propuesta que te presentamos en la llamada, antes de arrancar.",
+    q: "¿Qué pasa cuando agendo?",
+    a: "Primero respondés unas preguntas cortas sobre tu negocio. En la llamada vemos cómo trabajás y, si tiene sentido, te proponemos cómo arrancar.",
   },
 ];
 

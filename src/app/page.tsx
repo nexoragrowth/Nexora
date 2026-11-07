@@ -2,14 +2,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
 import CintaDolores from "@/components/home/CintaDolores";
-import Servicios from "@/components/home/Servicios";
-import Proceso from "@/components/home/Proceso";
+import ComoFunciona from "@/components/home/ComoFunciona";
+import QueIncluye from "@/components/home/QueIncluye";
+import Comparacion from "@/components/home/Comparacion";
+import Portal from "@/components/home/Portal";
+import ConIA from "@/components/home/ConIA";
 import Casos from "@/components/home/Casos";
 import Preguntas from "@/components/home/Preguntas";
 import Cierre from "@/components/home/Cierre";
 
-/* Home: quién es Nexora para el que la busca después de ver un anuncio o un video.
-   Hero → dolores → qué hacemos → cómo trabajamos → casos → preguntas → contacto.
+/* Home de Nexora Subscription (2026-11-07), armada sobre la referencia de designme.agency:
+   hero → dolores → cómo funciona → qué incluye → equipo vs. contratación → portal → IA → casos → preguntas → llamada.
    Reglas del texto: sin precios ni planes, sin cupos, garantías ni plazos, sin cifras sin fuente. */
 export default function Home() {
   return (
@@ -18,9 +21,12 @@ export default function Home() {
       <main>
         <Hero />
         <CintaDolores />
+        <ComoFunciona />
+        <QueIncluye />
+        <Comparacion />
+        <Portal />
+        <ConIA />
         <div className="linea-luz" aria-hidden="true" />
-        <Servicios />
-        <Proceso />
         <Casos />
         <div className="linea-luz" aria-hidden="true" />
         <Preguntas />
