@@ -1,115 +1,13 @@
 "use client";
 
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import { useRef, type MouseEvent } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-/* Tres pantallas de ejemplo debajo del hero, inclinadas en 3D, que se enderezan al bajar.
-   Son ilustraciones con datos de ejemplo: sin nombres, sin montos y sin datos de ningún cliente.
-   Cada una muestra algo que ya hacemos (turnos de Raquel, gestión de MB Cell, reglas de Traslap). */
+import Pantalla from "../Pantalla";
 
-function Ventana({ titulo, children, className = "" }: { titulo: string; children: ReactNode; className?: string }) {
-  return (
-    <div
-      className={`${className || "vidrio"} rounded-2xl border border-white/[0.06] bg-[#0b1020]/90 backdrop-blur-md shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] overflow-hidden`}
-    >
-      <div className="flex items-center gap-1.5 px-4 h-9 border-b border-white/[0.07]">
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="w-2 h-2 rounded-full bg-white/15" />
-        <span className="ml-3 text-[11px] font-semibold text-text-muted">{titulo}</span>
-      </div>
-      <div className="p-4">{children}</div>
-    </div>
-  );
-}
-
-function Estado({ tono, children }: { tono: "ok" | "espera" | "aviso"; children: string }) {
-  const tonos = {
-    ok: "bg-accent/10 text-accent border-accent/25",
-    espera: "bg-amber-400/10 text-amber-300 border-amber-300/25",
-    aviso: "bg-sky-400/10 text-sky-300 border-sky-300/25",
-  };
-  return <span className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold ${tonos[tono]}`}>{children}</span>;
-}
-
-function PantallaTurnos() {
-  const turnos: [string, "ok" | "espera" | "aviso", string][] = [
-    ["09:00", "ok", "Confirmado"],
-    ["10:30", "ok", "Confirmado"],
-    ["11:15", "aviso", "Recordatorio enviado"],
-    ["12:00", "espera", "Esperando respuesta"],
-    ["16:30", "ok", "Confirmado"],
-  ];
-  return (
-    <Ventana titulo="Turnos de mañana">
-      <ul className="space-y-2">
-        {turnos.map(([hora, tono, estado]) => (
-          <li key={hora} className="flex items-center justify-between rounded-lg bg-white/[0.03] px-3 py-2">
-            <span className="font-display text-[12px] font-bold text-text-primary">{hora}</span>
-            <span className="h-1.5 w-16 rounded-full bg-white/10" />
-            <Estado tono={tono}>{estado}</Estado>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-3 ml-auto w-[85%] rounded-xl rounded-tr-sm bg-[#0f3d2a] px-3 py-2 text-[11px] leading-snug text-[#d7ffe9]">
-        Hola, te recordamos tu turno de mañana a las 11:15. ¿Lo confirmás?
-      </div>
-    </Ventana>
-  );
-}
-
-function PantallaTablero() {
-  const barras = [38, 52, 44, 66, 58, 74, 62, 81, 70, 88, 76, 92];
-  return (
-    <Ventana titulo="Tablero del mes" className="borde-vivo">
-      <div className="grid grid-cols-3 gap-2">
-        {["Stock a costo", "Ventas", "Consignación"].map((k) => (
-          <div key={k} className="rounded-lg border border-white/[0.07] bg-white/[0.03] px-2.5 py-2">
-            <p className="text-[9.5px] font-semibold uppercase tracking-wider text-text-muted">{k}</p>
-            {/* Los números van ocultos, como con el botón del sistema para cuando hay alguien mirando */}
-            <p className="mt-1 font-display text-[15px] font-bold tracking-[0.2em] text-text-secondary">•••••</p>
-          </div>
-        ))}
-      </div>
-      <div className="mt-4 flex h-[118px] items-end gap-1.5 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 pb-3 pt-4">
-        {barras.map((h, i) => (
-          <span
-            key={i}
-            className="flex-1 rounded-t-[3px] bg-gradient-to-t from-accent/25 to-accent/80"
-            style={{ height: `${h}%` }}
-          />
-        ))}
-      </div>
-      <div className="mt-3 flex items-center justify-between text-[10.5px] text-text-muted">
-        <span>Stock · Ventas · Canje · Garantías</span>
-        <span className="inline-flex items-center gap-1 text-accent">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent pulse-dot" /> Al día
-        </span>
-      </div>
-    </Ventana>
-  );
-}
-
-function PantallaReglas() {
-  const reglas = ["Zona", "Tipo de día", "Cliente", "Bultos"];
-  return (
-    <Ventana titulo="Reglas de pago">
-      <ul className="space-y-2">
-        {reglas.map((r) => (
-          <li key={r} className="flex items-center justify-between rounded-lg bg-white/[0.03] px-3 py-2.5">
-            <span className="text-[12px] font-semibold text-text-secondary">{r}</span>
-            <span className="relative h-4 w-7 rounded-full bg-accent/80">
-              <span className="absolute right-0.5 top-0.5 h-3 w-3 rounded-full bg-white" />
-            </span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-3 rounded-lg border border-accent/30 bg-accent/[0.08] px-3 py-2.5 text-center text-[12px] font-semibold text-accent">
-        Lo que le toca a cada chofer
-      </div>
-    </Ventana>
-  );
-}
+/* Tres capturas reales debajo del hero, inclinadas en 3D, que se enderezan al bajar:
+   la web de la Dra. Raquel Rodríguez, el panel de ventas de TrendSpot (con datos de ejemplo,
+   tomado del repo del sistema) y la tienda online de TrendSpot. */
 
 export default function Vitrina() {
   const ref = useRef<HTMLDivElement>(null);
@@ -152,14 +50,30 @@ export default function Vitrina() {
         className="relative grid items-center gap-5 md:grid-cols-[1fr_1.25fr_1fr]"
       >
         <motion.div style={{ rotateY: ladoY }} className="hidden md:block origin-right">
-          <PantallaTurnos />
+          <Pantalla src="/webs/raquel.webp" alt="Web de la Dra. Raquel Rodríguez" barra="raquelrodriguez.com.ar" sizes="360px" />
         </motion.div>
-        <PantallaTablero />
+        <Pantalla
+          src="/trendspot/panel-inicio.webp"
+          alt="Panel de ventas de TrendSpot, con datos de ejemplo"
+          barra="Panel de ventas · TrendSpot"
+          ancho={1366}
+          alto={800}
+          ejemplo
+          prioridad
+          sizes="(min-width: 768px) 460px, 100vw"
+          className="borde-vivo"
+        />
         <motion.div style={{ rotateY: ladoYneg }} className="hidden md:block origin-left">
-          <PantallaReglas />
+          <Pantalla src="/webs/trendspot.webp" alt="Tienda online de TrendSpot" barra="trend-spot.shop" sizes="360px" />
         </motion.div>
       </motion.div>
-      <p className="relative mt-5 text-center text-[12px] text-text-muted">Pantallas de ejemplo de lo que armamos</p>
+      <p className="relative mt-5 text-center text-[12px] text-text-muted">
+        <span className="md:hidden">Captura real del panel de ventas de TrendSpot, con datos de ejemplo.</span>
+        <span className="hidden md:inline">
+          Capturas reales de lo que armamos: la web de la Dra. Raquel Rodríguez, el panel de ventas de TrendSpot y su tienda
+          online.
+        </span>
+      </p>
     </div>
   );
 }
