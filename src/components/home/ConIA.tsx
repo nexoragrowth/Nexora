@@ -40,7 +40,7 @@ function Columna({ titulo, items, destacada = false }: { titulo: string; items: 
 
 export default function ConIA() {
   return (
-    <section id="ia" className="relative border-y border-border bg-[#05070d]">
+    <section id="ia" className="relative border-y border-white/[0.06] bg-gradient-to-b from-transparent via-[#05070d]/55 to-transparent">
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
@@ -53,9 +53,9 @@ export default function ConIA() {
             }
             bajada="Usamos IA en todo lo que se puede acelerar, dentro de las reglas que dejamos escritas para cada negocio. Lo que define el resultado lo decide una persona."
           />
-          <FadeUp delay={0.06} className="flex flex-wrap gap-2 lg:justify-end">
+          <FadeUp delay={0.06} className="grid grid-cols-3 gap-2 lg:max-w-[440px] lg:ml-auto">
             {CHIPS.map((c) => (
-              <span key={c} className="rounded-md border border-white/[0.1] bg-white/[0.03] px-3 py-1.5 text-[11.5px] font-bold uppercase tracking-wider text-text-secondary">
+              <span key={c} className="rounded-md border border-white/[0.1] bg-white/[0.03] px-3 py-1.5 text-center text-[11.5px] font-bold uppercase tracking-wider text-text-secondary">
                 {c}
               </span>
             ))}

@@ -1,5 +1,5 @@
 import BotonesContacto from "../BotonesContacto";
-import { Etiqueta, Resaltado } from "../Encabezado";
+import { Etiqueta, Resaltado, Coma } from "../Encabezado";
 import { Flecha } from "../Iconos";
 
 /* Hero de Nexora Subscription (referencia: designme.agency). Sin precio: se habla en la llamada.
@@ -13,7 +13,7 @@ const PRUEBAS = [
 
 export default function Hero() {
   return (
-    <section className="relative pt-[68px] pb-6 overflow-hidden">
+    <section className="relative pt-[68px] overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[760px] grid-bg opacity-60 pointer-events-none" aria-hidden="true" />
       <div
         className="absolute left-1/2 -translate-x-1/2 top-[-180px] w-[min(1000px,140vw)] h-[620px] glow-accent pointer-events-none"
@@ -29,7 +29,7 @@ export default function Hero() {
 
         <div className="aparecer" style={{ animationDelay: "0.08s" }}>
           <h1 className="mt-7 text-[clamp(2.4rem,6.2vw,4.6rem)] font-extrabold leading-[1.03] tracking-[-0.035em] text-text-primary titulo-degrade">
-            Tu equipo de sistemas y crecimiento,
+            Tu equipo de sistemas y crecimiento<Coma />
             <br className="hidden sm:block" /> <Resaltado>sin contratar uno interno</Resaltado>
           </h1>
         </div>
@@ -56,7 +56,7 @@ export default function Hero() {
       </div>
 
       {/* Franja de pruebas, como la de la referencia */}
-      <div className="aparecer relative border-y border-border bg-bg-primary/40 backdrop-blur-sm" style={{ animationDelay: "0.3s" }}>
+      <div className="aparecer relative border-t border-border bg-white/[0.015]" style={{ animationDelay: "0.3s" }}>
         <ul className="mx-auto max-w-6xl px-4 sm:px-6 grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
           {PRUEBAS.map((p) => (
             <li key={p.titulo} className="py-4 sm:py-5 sm:px-6 first:sm:pl-0 last:sm:pr-0 text-center sm:text-left">

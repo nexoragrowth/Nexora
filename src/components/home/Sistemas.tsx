@@ -53,19 +53,17 @@ const SECCIONES_PORTAL = ["Hoy", "Ventas", "Prospección", "Clientes", "Proyecto
 function Ficha({ s }: { s: Sistema }) {
   const cuerpo = (
     <>
-      <span className="flex items-center justify-between gap-3">
-        <span className="font-display text-[15px] font-bold text-text-primary">{s.nombre}</span>
-        <span className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-text-muted shrink-0">
-          <span className={`w-1.5 h-1.5 rounded-full ${PUNTO[s.estado]}`} aria-hidden="true" />
-          {s.estado}
-        </span>
+      <span className="inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-text-muted">
+        <span className={`w-1.5 h-1.5 rounded-full ${PUNTO[s.estado]}`} aria-hidden="true" />
+        {s.estado}
       </span>
+      <span className="mt-1 block font-display text-[15px] font-bold text-text-primary">{s.nombre}</span>
       <span className="mt-1 block text-[13.5px] leading-snug text-text-secondary">{s.texto}</span>
     </>
   );
-  const clase = "group block rounded-xl border border-border bg-bg-card/60 px-4 py-3 transition-colors";
+  const clase = "tarjeta group block h-full rounded-xl border border-border px-4 py-3.5";
   return s.href ? (
-    <Link href={s.href} className={`${clase} hover:border-accent/40`}>
+    <Link href={s.href} className={`${clase} alzar`}>
       {cuerpo}
     </Link>
   ) : (
@@ -89,7 +87,7 @@ export default function Sistemas() {
 
         <FadeUp delay={0.06} className="mt-12 divide-y divide-border border-y border-border">
           {/* El Portal, destacado */}
-          <div id="portal" className="grid gap-5 py-7 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:gap-10">
+          <div id="portal" className="grid gap-5 py-7 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-10">
             <div>
               <p className="flex items-center gap-2 font-display text-[18px] font-extrabold text-text-primary">
                 Portal Nexora
@@ -103,9 +101,9 @@ export default function Sistemas() {
               </p>
             </div>
             <div>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {SECCIONES_PORTAL.map((s) => (
-                  <span key={s} className="rounded-lg border border-accent/20 bg-accent/[0.05] px-3 py-2 text-[13.5px] font-semibold text-text-primary">
+                  <span key={s} className="rounded-lg border border-accent/20 bg-accent/[0.05] px-3 py-2 text-center text-[13.5px] font-semibold text-text-primary">
                     {s}
                   </span>
                 ))}
@@ -115,8 +113,8 @@ export default function Sistemas() {
           </div>
 
           {FILAS.map((f) => (
-            <div key={f.parte} className="grid gap-4 py-6 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] md:gap-10 md:items-start">
-              <p className="font-display text-[16px] font-bold text-text-secondary md:pt-3">{f.parte}</p>
+            <div key={f.parte} className="grid gap-4 py-6 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-10 lg:items-start">
+              <p className="font-display text-[16px] font-bold text-text-secondary lg:pt-3">{f.parte}</p>
               <div className="grid gap-2.5 sm:grid-cols-2">
                 {f.sistemas.map((s) => (
                   <Ficha key={s.nombre} s={s} />

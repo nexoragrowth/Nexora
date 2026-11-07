@@ -32,8 +32,8 @@ export default function Complemento() {
   const idConsigna = useId();
 
   return (
-    <FadeUp delay={0.08} className="mt-6 rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm p-6 sm:p-8">
-      <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+    <FadeUp delay={0.08} className="tarjeta mt-6 rounded-2xl border border-border p-6 sm:p-8">
+      <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
           <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-accent">¿Ya tenés una parte cubierta?</p>
           <h3 className="mt-3 font-display text-[clamp(1.3rem,2.4vw,1.6rem)] font-extrabold leading-tight text-text-primary">

@@ -68,7 +68,7 @@ export default function Preguntas() {
 
   return (
     <section id="preguntas" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-      <div>
+      <div className="lg:sticky lg:top-28 lg:self-start">
         <Encabezado
           etiqueta="Preguntas"
           titulo="Lo que preguntan los dueños"

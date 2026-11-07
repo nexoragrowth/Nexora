@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import FadeUp from "../FadeUp";
-import Encabezado, { Resaltado } from "../Encabezado";
+import Encabezado, { Resaltado, Coma } from "../Encabezado";
 
 /* Un equipo de especialistas, no una sola contratación (el "pool of senior specialists" de designme.agency).
    Roles sin nombres, sin fotos y sin cantidad: salen del reparto de dueños del 2026-10-22. */
@@ -48,7 +48,7 @@ const RAZONES: { titulo: string; texto: string }[] = [
 
 function Partes({ prendidas, centro }: { prendidas: "una" | "todas"; centro: string }) {
   return (
-    <div className="mt-6 flex flex-wrap items-center justify-center gap-2" aria-hidden="true">
+    <div className="mt-6 flex flex-wrap items-center gap-2" aria-hidden="true">
       {PARTES.map((p, i) => {
         const on = prendidas === "todas" || i === 0;
         return (
@@ -80,13 +80,13 @@ export default function Equipo() {
         etiqueta="Un equipo, todas las partes"
         titulo={
           <>
-            Un equipo de especialistas, <Resaltado>no una sola contratación</Resaltado>
+            Un equipo de especialistas<Coma /> <Resaltado>no una sola contratación</Resaltado>
           </>
         }
         bajada="Contenido, publicidad, WhatsApp y sistemas. Cada suscripción tiene un responsable de tu cuenta y la gente que el trabajo necesita."
       />
 
-      <FadeUp delay={0.06} className="mt-12 rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm divide-y divide-border">
+      <FadeUp delay={0.06} className="tarjeta mt-12 rounded-2xl border border-border divide-y divide-border">
         {ROLES.map((r) => (
           <div key={r.rol} className="grid gap-2 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:items-center px-5 py-4 sm:px-6">
             <p className="flex items-center gap-3 font-display text-[16px] font-bold text-text-primary">
@@ -105,7 +105,7 @@ export default function Equipo() {
       <FadeUp delay={0.08} className="mt-16">
         <h3 className="text-[clamp(1.4rem,2.6vw,1.9rem)] font-extrabold text-text-primary">Por qué un equipo le gana a una persona</h3>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-bg-card/40 p-6">
+          <div className="tarjeta rounded-2xl border border-border p-6">
             <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-text-muted">Una contratación</p>
             <p className="mt-2 text-[16px] font-semibold text-text-secondary">Lo que sabe esa persona. Lo demás, otra búsqueda.</p>
             <Partes prendidas="una" centro="Una persona" />

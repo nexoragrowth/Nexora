@@ -9,14 +9,14 @@ import Encabezado, { Resaltado } from "../Encabezado";
 
 function Mini({ titulo, children }: { titulo: string; children: ReactNode }) {
   return (
-    <div className="mt-6 rounded-xl border border-white/[0.07] bg-bg-primary/70 overflow-hidden" aria-hidden="true">
+    <div className="tarjeta mt-6 rounded-xl border border-white/[0.07] overflow-hidden" aria-hidden="true">
       <div className="flex items-center gap-1.5 px-3 h-8 border-b border-white/[0.06]">
         <span className="w-1.5 h-1.5 rounded-full bg-white/15" />
         <span className="w-1.5 h-1.5 rounded-full bg-white/15" />
         <span className="w-1.5 h-1.5 rounded-full bg-white/15" />
         <span className="ml-2 text-[10.5px] font-semibold text-text-muted">{titulo}</span>
       </div>
-      <div className="p-3.5 min-h-[150px] flex flex-col">{children}</div>
+      <div className="p-3.5 min-h-[164px] flex flex-col">{children}</div>
     </div>
   );
 }
@@ -209,14 +209,14 @@ export default function ComoFunciona() {
           {PASOS.map((p, i) => (
             <FadeUp as="li" key={p.titulo} delay={(i % 3) * 0.06} className="flex flex-col">
               <div className="flex items-center gap-3">
-                <span className="w-9 h-9 shrink-0 rounded-lg bg-accent text-bg-primary font-display text-[13px] font-extrabold flex items-center justify-center">
+                <span className="w-9 h-9 shrink-0 rounded-lg border border-accent/40 bg-accent/10 text-accent shadow-[0_0_24px_-6px_rgba(0,230,118,0.6)] font-display text-[13px] font-extrabold flex items-center justify-center">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="h-px flex-1 bg-border" aria-hidden="true" />
+                <span className="h-px flex-1 bg-gradient-to-r from-accent/40 via-white/10 to-transparent" aria-hidden="true" />
               </div>
-              <p className="mt-4 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-text-muted">{p.etapa}</p>
+              <p className="mt-4 text-[11.5px] font-semibold uppercase tracking-[0.16em] text-accent/75">{p.etapa}</p>
               <h3 className="mt-1.5 text-[22px] font-extrabold leading-snug text-text-primary">{p.titulo}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-text-secondary">{p.texto}</p>
+              <p className="mt-2 flex-1 text-[15px] leading-relaxed text-text-secondary">{p.texto}</p>
               {p.mini}
             </FadeUp>
           ))}

@@ -1,15 +1,15 @@
 import Link from "next/link";
 import FadeUp from "../FadeUp";
-import Encabezado, { Resaltado } from "../Encabezado";
+import Encabezado, { Resaltado, Coma } from "../Encabezado";
 import { Flecha } from "../Iconos";
 
 /* Por qué Nexora (el "Senior craft, shipped at AI speed" de designme.agency). Donde la referencia pone
    cifras, acá van tres pruebas sin números, cada una con su link. */
 
 const PRUEBAS = [
-  { titulo: "Casos con nombre", link: "Ver proyectos", href: "/#proyectos" },
-  { titulo: "Sistemas propios en uso", link: "Ver sistemas", href: "/#sistemas" },
-  { titulo: "Webs y demos", link: "Ver todas", href: "/webs" },
+  { titulo: "Casos con nombre", texto: "Raquel, TrendSpot y Traslap, cada uno con la etapa en la que está.", link: "Ver proyectos", href: "/#proyectos" },
+  { titulo: "Sistemas propios en uso", texto: "El Portal y el Content Engine, entre otros, con su estado real.", link: "Ver sistemas", href: "/#sistemas" },
+  { titulo: "Webs y demos", texto: "Publicadas y demos, con la marca real de cada negocio.", link: "Ver todas", href: "/webs" },
 ];
 
 const RAZONES: { titulo: string; texto: string }[] = [
@@ -28,17 +28,18 @@ export default function PorQue() {
         etiqueta="Por qué Nexora"
         titulo={
           <>
-            Vendemos criterio, <Resaltado>no herramientas</Resaltado>
+            Vendemos criterio<Coma /> <Resaltado>no herramientas</Resaltado>
           </>
         }
         bajada="Lo que hacemos se ve en las webs y los sistemas, pero lo que contratás es un equipo que entiende tu negocio y lo hace crecer ordenado."
       />
 
-      <FadeUp delay={0.06} className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+      <FadeUp delay={0.06} className="mt-12 grid gap-4 sm:grid-cols-3">
         {PRUEBAS.map((p) => (
-          <Link key={p.titulo} href={p.href} className="group bg-bg-card px-6 py-6 hover:bg-bg-card/70 transition-colors">
+          <Link key={p.titulo} href={p.href} className="tarjeta alzar luz filo group flex flex-col rounded-2xl border border-border px-6 py-6">
             <p className="font-display text-[20px] font-extrabold text-text-primary">{p.titulo}</p>
-            <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-semibold text-accent">
+            <p className="mt-2 text-[14px] leading-relaxed text-text-secondary">{p.texto}</p>
+            <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-accent">
               {p.link} <Flecha className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </span>
           </Link>

@@ -1,5 +1,5 @@
 import FadeUp from "../FadeUp";
-import Encabezado, { Resaltado } from "../Encabezado";
+import Encabezado, { Resaltado, Coma } from "../Encabezado";
 
 /* Cómo se compara (el "How we compare" de designme.agency), sin barras de costo ni "por menos que una
    contratación": no hay precio publicado. Comparación por cómo se trabaja, sin nombrar a nadie. */
@@ -33,13 +33,13 @@ export default function Comparacion() {
           etiqueta="Cómo se compara"
           titulo={
             <>
-              Contratar, sumar freelancers, una agencia <Resaltado>o Nexora</Resaltado>
+              Contratar<Coma /> sumar freelancers<Coma /> una agencia <Resaltado>o Nexora</Resaltado>
             </>
           }
           bajada="Sin cifras: cómo se trabaja en cada caso."
         />
 
-        <FadeUp delay={0.1} className="mt-10 luz filo rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm overflow-hidden">
+        <FadeUp delay={0.1} className="tarjeta mt-10 luz filo rounded-2xl border border-border overflow-hidden">
           {/* En el celular, cada fila es una tarjeta; desde sm, una tabla */}
           <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-left text-[14px]">

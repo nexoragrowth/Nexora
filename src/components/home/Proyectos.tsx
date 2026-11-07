@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "../FadeUp";
-import Encabezado, { Resaltado } from "../Encabezado";
+import Encabezado, { Resaltado, Coma } from "../Encabezado";
 import { Flecha } from "../Iconos";
 import { DESTACADOS, TRABAJOS } from "@/lib/trabajos";
 
@@ -78,13 +78,13 @@ export default function Proyectos() {
         etiqueta="Proyectos"
         titulo={
           <>
-            Proyectos reales, <Resaltado>en qué está cada uno</Resaltado>
+            Proyectos reales<Coma /> <Resaltado>en qué está cada uno</Resaltado>
           </>
         }
         bajada="Lo que armamos, contado como está hoy: lo que anda, lo que está en prueba y lo que falta. Los números, cuando estén medidos."
       />
 
-      <FadeUp delay={0.06} className="mt-12 rounded-2xl border border-border bg-bg-card/60 backdrop-blur-sm overflow-hidden">
+      <FadeUp delay={0.06} className="tarjeta mt-12 rounded-2xl border border-border overflow-hidden">
         {/* Encabezado de la escala (desde md) */}
         <div className="hidden md:grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-8 px-6 py-3 border-b border-border text-[11px] font-semibold uppercase tracking-[0.14em] text-text-muted">
           <span>Del relevamiento al uso · una misma escala</span>
@@ -106,7 +106,7 @@ export default function Proyectos() {
                   {p.foto ? (
                     <Image src={p.foto} alt="" width={44} height={44} className="w-11 h-11 shrink-0 rounded-full object-cover object-[center_15%] border border-border" />
                   ) : (
-                    <span className="w-11 h-11 shrink-0 rounded-full border border-border bg-white/[0.03] flex items-center justify-center font-display text-[15px] font-extrabold text-text-secondary">
+                    <span className="w-11 h-11 shrink-0 rounded-full border border-accent/30 bg-gradient-to-br from-accent/25 to-accent/5 flex items-center justify-center font-display text-[15px] font-extrabold text-accent">
                       {p.nombre.charAt(0)}
                     </span>
                   )}
@@ -138,10 +138,16 @@ export default function Proyectos() {
         </ul>
       </FadeUp>
 
-      <FadeUp delay={0.08} className="mt-6 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl border border-border bg-bg-card/40 px-5 py-4 sm:px-6">
+      <FadeUp delay={0.08} className="tarjeta mt-6 flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-5 rounded-2xl border border-border px-5 py-4 sm:px-6">
         <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-text-muted">Los que siguen con nosotros todos los meses</p>
-        <p className="text-[15px] text-text-primary font-semibold">Dra. Raquel Rodríguez · Traslap</p>
-        <p className="text-[13.5px] text-text-muted sm:ml-auto">Trabajan con Nexora por una cuota mensual.</p>
+        <div className="flex flex-wrap gap-2">
+          {["Dra. Raquel Rodríguez", "Traslap"].map((c) => (
+            <span key={c} className="whitespace-nowrap rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1 text-[13.5px] font-semibold text-text-primary">
+              {c}
+            </span>
+          ))}
+        </div>
+        <p className="text-[13.5px] text-text-muted lg:ml-auto">Trabajan con Nexora por una cuota mensual.</p>
       </FadeUp>
 
       {/* La única franja de webs de la home */}
@@ -156,12 +162,12 @@ export default function Proyectos() {
             <Flecha className="w-4 h-4" />
           </Link>
         </div>
-        <div className="mt-4 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-3 overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-visible snap-x [scrollbar-width:none]">
+        <div className="mt-4 -mx-4 px-4 scroll-px-4 sm:mx-0 sm:px-0 sm:scroll-px-0 flex gap-3 overflow-x-auto sm:grid sm:grid-cols-4 sm:overflow-visible snap-x [scrollbar-width:none]">
           {webs.map((t) => (
             <Link
               key={t.id}
               href="/webs"
-              className="group snap-start shrink-0 w-[62%] sm:w-auto rounded-xl border border-border bg-bg-card/60 overflow-hidden hover:border-accent/40 transition-colors"
+              className="alzar tarjeta group snap-start shrink-0 w-[62%] sm:w-auto rounded-xl border border-border overflow-hidden"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image

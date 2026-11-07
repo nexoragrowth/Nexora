@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import FadeUp from "../FadeUp";
-import Encabezado, { Resaltado } from "../Encabezado";
+import Encabezado, { Resaltado, Coma } from "../Encabezado";
 import BotonesContacto from "../BotonesContacto";
 import { IconoCheck } from "../Iconos";
 import Complemento from "./Complemento";
@@ -76,14 +76,14 @@ export default function QueIncluye() {
         centrado
         titulo={
           <>
-            Una suscripción, <Resaltado>cuatro partes</Resaltado>
+            Una suscripción<Coma /> <Resaltado>cuatro partes</Resaltado>
           </>
         }
         bajada="Mes a mes. Se pausa o se cancela cuando quieras. Las cuatro partes están disponibles; cada mes ponemos el foco donde más rinde. Y si ya tenés una parte cubierta, sumamos las que faltan."
       />
 
       <FadeUp delay={0.06} className="mt-12 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
+        <div className="lg:sticky lg:top-28">
           <p className="mb-3 text-[11.5px] font-bold uppercase tracking-[0.14em] text-text-muted">Elegí una parte</p>
           <div className="space-y-2.5" role="tablist" aria-label="Las cuatro partes de la suscripción">
             {PARTES.map((p, i) => {
