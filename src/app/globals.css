@@ -40,6 +40,21 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+/* Plus Jakarta trae el espacio angosto: con tracking negativo las palabras se pegan */
+h1, h2, h3, h4, h5, h6, .font-display {
+  word-spacing: 0.06em;
+}
+h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+}
+/* Los botones no heredan el espaciado entre palabras (las preguntas frecuentes son botones dentro de un h3) */
+button {
+  word-spacing: inherit;
+}
+p, li {
+  text-wrap: pretty;
 }
 
 ::selection {
@@ -83,6 +98,12 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* La cursiva se sale de la caja por los costados y por abajo: se agranda la caja que pinta el
+     degradé (padding) sin mover el texto (margen negativo), y se repite en cada renglón. */
+  padding: 0 0.12em 0.14em;
+  margin: 0 -0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* Esquinas marcadas (corner brackets) para tarjetas destacadas */
@@ -160,6 +181,12 @@ h1, h2, h3, h4, h5, h6 {
 .titilar-lento {
   animation: titilar 9s ease-in-out infinite 1.5s;
 }
+.titilar-desfasado {
+  animation: titilar 7s ease-in-out infinite 3s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .titilar, .titilar-lento, .titilar-desfasado { animation: none; }
+}
 .nebulosa {
   position: absolute;
   border-radius: 9999px;
@@ -183,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 .grano {
   position: absolute;
   inset: -50%;
-  opacity: 0.05;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
@@ -297,6 +324,9 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* Que las colas de g, p, y, j del último renglón entren en la caja pintada */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 /* Línea de luz entre secciones */
@@ -314,4 +344,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pulse-dot {
   animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+/* ── Retoque premium (2026-11-07) ── */
+/* Tarjeta con profundidad: vidrio apenas iluminado arriba, filo interno y sombra larga */
+.tarjeta {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)), rgba(15, 20, 33, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 60px -35px rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+/* Hover de las tarjetas que son links: sube un poco y agarra luz verde */
+.alzar {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, box-shadow 0.3s;
+}
+.alzar:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 230, 118, 0.35);
+  box-shadow: 0 20px 50px -25px rgba(0, 230, 118, 0.35);
+}
+@media (prefers-reduced-motion: reduce) {
+  .alzar:hover { transform: none; }
+}
+/* La coma de los títulos, más pegada a la palabra (ver <Coma /> en Encabezado.tsx) */
+.coma {
+  margin-left: -0.13em;
 }

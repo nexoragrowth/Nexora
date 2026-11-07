@@ -3,6 +3,7 @@ import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 import Cielo from "@/components/Cielo";
+import Particulas from "@/components/Particulas";
 import LuzPuntero from "@/components/LuzPuntero";
 import PixelMeta from "@/components/PixelMeta";
 
@@ -56,9 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${plusJakarta.variable} ${dmSans.variable} antialiased`}>
+    <html lang="es" className={`${plusJakarta.variable} ${dmSans.variable}`}>
+      <body className="antialiased">
         <Cielo />
+        <Particulas />
         <LuzPuntero />
         <MotionProvider>{children}</MotionProvider>
         <PixelMeta />
