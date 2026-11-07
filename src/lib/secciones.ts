@@ -2,7 +2,8 @@
 export const SECCIONES = [
   { href: "/#como-funciona", label: "Cómo funciona" },
   { href: "/#que-incluye", label: "Qué incluye" },
-  { href: "/#portal", label: "Portal" },
+  { href: "/#sistemas", label: "Sistemas" },
   { href: "/#casos", label: "Casos" },
+  { href: "/webs", label: "Webs" },
   { href: "/#preguntas", label: "Preguntas" },
 ];

@@ -1,20 +1,25 @@
 import FadeUp from "../FadeUp";
 import Encabezado, { Resaltado } from "../Encabezado";
 
-/* El diferencial del tablero: el Portal Nexora. La pantalla es de ejemplo, sin datos de ningún cliente. */
+/* El diferencial del tablero: el Portal Nexora. Sin pantallas inventadas: a la derecha van las secciones
+   reales del Portal (las páginas del repo nexora-crm), sin datos de ningún cliente. */
 
 const QUE_VES = [
-  "Qué se está haciendo este mes",
+  "Las etapas de tu proyecto y en cuál está",
   "Lo que ya se entregó",
   "Lo que falta de tu lado",
-  "Las métricas de lo que se priorizó",
-  "Los accesos, guardados en un solo lugar",
+  "Las decisiones que se tomaron, con su fecha",
 ];
 
-const COLUMNAS: { titulo: string; tono: string; tareas: string[] }[] = [
-  { titulo: "En curso", tono: "text-sky-300 border-sky-300/25 bg-sky-400/10", tareas: ["Guiones de la semana", "Campaña de consultas"] },
-  { titulo: "Falta de tu lado", tono: "text-amber-300 border-amber-300/25 bg-amber-400/10", tareas: ["Aprobar los videos", "Pasar la lista de precios"] },
-  { titulo: "Entregado", tono: "text-accent border-accent/25 bg-accent/10", tareas: ["Respuestas por WhatsApp", "Agenda conectada"] },
+const SECCIONES: { nombre: string; texto: string }[] = [
+  { nombre: "Hoy", texto: "Lo que toca en el día" },
+  { nombre: "Ventas", texto: "Cada consulta, en su etapa" },
+  { nombre: "Prospección", texto: "Negocios por contactar" },
+  { nombre: "Clientes", texto: "Su ficha y su historia" },
+  { nombre: "Proyectos", texto: "Etapas, pedidos y decisiones" },
+  { nombre: "Tareas", texto: "Quién hace qué" },
+  { nombre: "WhatsApp", texto: "Las conversaciones" },
+  { nombre: "Finanzas", texto: "Cobros y gastos" },
 ];
 
 export default function Portal() {
@@ -29,7 +34,7 @@ export default function Portal() {
                 Siempre sabés <Resaltado>qué estamos haciendo</Resaltado>
               </>
             }
-            bajada="Cada cliente tiene su portal. Ahí ves el trabajo del mes sin tener que preguntar."
+            bajada="Trabajamos todo dentro del Portal Nexora, el sistema que construimos para la agencia. Cada cliente tiene ahí una vista con su proyecto, para no tener que preguntar en qué está."
           />
           <FadeUp delay={0.08} className="mt-8">
             <ul className="space-y-3">
@@ -46,30 +51,19 @@ export default function Portal() {
         </div>
 
         <FadeUp delay={0.1} className="borde-vivo rounded-2xl border border-white/[0.06] bg-[#0b1020]/90 backdrop-blur-md shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] overflow-hidden">
-          <div aria-hidden="true">
-          <div className="flex items-center gap-1.5 px-4 h-9 border-b border-white/[0.07]">
-            <span className="w-2 h-2 rounded-full bg-white/15" />
-            <span className="w-2 h-2 rounded-full bg-white/15" />
-            <span className="w-2 h-2 rounded-full bg-white/15" />
-            <span className="ml-3 text-[11px] font-semibold text-text-muted">Portal Nexora · Este mes</span>
+          <div className="flex items-center gap-2 px-5 h-11 border-b border-white/[0.07]">
+            <span className="w-2 h-2 rounded-full bg-accent pulse-dot" />
+            <span className="text-[12.5px] font-semibold text-text-secondary">Qué hay adentro del Portal</span>
           </div>
-          <div className="p-4 grid gap-3 sm:grid-cols-3">
-            {COLUMNAS.map((c) => (
-              <div key={c.titulo} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3">
-                <span className={`inline-flex rounded-full border px-2 py-0.5 text-[10.5px] font-semibold ${c.tono}`}>{c.titulo}</span>
-                <ul className="mt-3 space-y-2">
-                  {c.tareas.map((t) => (
-                    <li key={t} className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-2.5 text-[12px] font-medium text-text-secondary">
-                      {t}
-                      <span className="mt-2 block h-1 w-2/3 rounded-full bg-white/10" />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <ul className="p-4 grid gap-2.5 grid-cols-2">
+            {SECCIONES.map((s) => (
+              <li key={s.nombre} className="rounded-xl border border-white/[0.06] bg-white/[0.025] px-4 py-3.5">
+                <p className="font-display text-[15px] font-bold text-text-primary">{s.nombre}</p>
+                <p className="mt-0.5 text-[13px] leading-snug text-text-muted">{s.texto}</p>
+              </li>
             ))}
-          </div>
-          </div>
-          <p className="px-4 pb-4 text-[11px] text-text-muted">Pantalla de ejemplo</p>
+          </ul>
+          <p className="px-5 pb-5 text-[12.5px] text-text-muted">Son las secciones reales del Portal. Los datos de los clientes no se muestran.</p>
         </FadeUp>
       </div>
     </section>
