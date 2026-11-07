@@ -45,8 +45,8 @@ const PROYECTOS: { nombre: string; rubro: string; texto: string; etapa: Etapa; n
     rubro: "Nuestro propio proyecto",
     texto: "Nexora también es cliente de Nexora: el Portal y el Content Engine se construyeron como un proyecto más.",
     etapa: "En uso",
-    href: "/#sistemas",
-    link: "Ver los sistemas",
+    href: "/#como-funciona",
+    link: "Ver cómo trabajamos",
   },
 ];
 
@@ -70,7 +70,6 @@ function Barra({ etapa }: { etapa: Etapa }) {
 
 export default function Proyectos() {
   const webs = DESTACADOS.map((id) => TRABAJOS.find((t) => t.id === id)).filter((t) => t !== undefined);
-  const resto = TRABAJOS.length - webs.length;
 
   return (
     <section id="proyectos" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
@@ -138,27 +137,15 @@ export default function Proyectos() {
         </ul>
       </FadeUp>
 
-      <FadeUp delay={0.08} className="tarjeta mt-6 flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-5 rounded-2xl border border-border px-5 py-4 sm:px-6">
-        <p className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-text-muted">Los que siguen con nosotros todos los meses</p>
-        <div className="flex flex-wrap gap-2">
-          {["Dra. Raquel Rodríguez", "Traslap"].map((c) => (
-            <span key={c} className="whitespace-nowrap rounded-full border border-accent/20 bg-accent/[0.06] px-3 py-1 text-[13.5px] font-semibold text-text-primary">
-              {c}
-            </span>
-          ))}
-        </div>
-        <p className="text-[13.5px] text-text-muted lg:ml-auto">Trabajan con Nexora por una cuota mensual.</p>
-      </FadeUp>
-
       {/* La única franja de webs de la home */}
-      <FadeUp delay={0.1} className="mt-10">
+      <FadeUp delay={0.08} className="mt-10">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="text-[18px] font-extrabold text-text-primary">También hacemos webs, con la marca de cada negocio</p>
             <p className="mt-1 text-[14px] text-text-muted">Son una parte del trabajo, no la suscripción entera.</p>
           </div>
           <Link href="/webs" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-accent">
-            Ver webs y demos{resto > 0 && <span className="text-text-muted font-medium">(y {resto} más)</span>}
+            Ver más webs y demos
             <Flecha className="w-4 h-4" />
           </Link>
         </div>

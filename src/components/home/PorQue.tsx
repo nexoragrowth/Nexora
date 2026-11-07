@@ -8,8 +8,8 @@ import { Flecha } from "../Iconos";
 
 const PRUEBAS = [
   { titulo: "Casos con nombre", texto: "Raquel, TrendSpot y Traslap, cada uno con la etapa en la que está.", link: "Ver proyectos", href: "/#proyectos" },
-  { titulo: "Sistemas propios en uso", texto: "El Portal y el Content Engine, entre otros, con su estado real.", link: "Ver sistemas", href: "/#sistemas" },
-  { titulo: "Webs y demos", texto: "Publicadas y demos, con la marca real de cada negocio.", link: "Ver todas", href: "/webs" },
+  { titulo: "Un proceso claro", texto: "Seis pasos, de la primera llamada a cada mes, con todo a la vista en tu portal.", link: "Ver los pasos", href: "/#como-funciona" },
+  { titulo: "Webs y demos", texto: "Publicadas y demos, con la marca real de cada negocio.", link: "Ver webs", href: "/webs" },
 ];
 
 const RAZONES: { titulo: string; texto: string }[] = [
@@ -31,7 +31,7 @@ export default function PorQue() {
             Vendemos criterio<Coma /> <Resaltado>no herramientas</Resaltado>
           </>
         }
-        bajada="Lo que hacemos se ve en las webs y los sistemas, pero lo que contratás es un equipo que entiende tu negocio y lo hace crecer ordenado."
+        bajada="Lo que hacemos se ve en los proyectos y las webs, pero lo que contratás es un equipo que entiende tu negocio y lo hace crecer ordenado."
       />
 
       <FadeUp delay={0.06} className="mt-12 grid gap-4 sm:grid-cols-3">

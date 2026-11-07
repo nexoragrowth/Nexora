@@ -2,7 +2,8 @@
    - "web": está publicada y es la web del negocio.
    - "demo": es una propuesta de diseño o una demo con datos de ejemplo; no es la web oficial del negocio.
    Las demos no se linkean (no se indexan); las webs publicadas sí. Quedaron afuera las capturas con caras
-   de personas o con teléfonos. */
+   de personas o con teléfonos.
+   Desde el 2026-11-07 se muestran solo las mejores demos (las elige Cogne), no todas. */
 
 export type Trabajo = {
   id: string;
@@ -19,15 +20,9 @@ export const TRABAJOS: Trabajo[] = [
   { id: "landing", nombre: "Nexora · Diagnóstico", rubro: "Nuestra landing de consultas", tipo: "web", url: "/diagnostico", dominio: "nexoragrowth.es/diagnostico" },
   { id: "chicapple", nombre: "Chic Apple", rubro: "iPhones · La Plata", tipo: "demo" },
   { id: "veredita", nombre: "Veredita", rubro: "Café y bar · La Plata", tipo: "demo" },
-  { id: "heladeria", nombre: "Heladería H", rubro: "Heladería · Gran La Plata", tipo: "demo" },
   { id: "balneario", nombre: "Balneario Pepe's", rubro: "Balneario · Miramar", tipo: "demo" },
-  { id: "eurekasistema", nombre: "Eureka Academy", rubro: "Escuela de música · La Plata", tipo: "demo" },
   { id: "tita", nombre: "Tita Café", rubro: "Café de especialidad · La Plata", tipo: "demo" },
-  { id: "mona", nombre: "MONA", rubro: "Estética corporal · Gonnet", tipo: "demo" },
-  { id: "vital", nombre: "Vital", rubro: "Veterinaria · Gonnet", tipo: "demo" },
   { id: "rebelde", nombre: "Rebelde Estilistas", rubro: "Peluquería · La Plata", tipo: "demo" },
-  { id: "pilates", nombre: "Pilates Bell", rubro: "Pilates · City Bell", tipo: "demo" },
-  { id: "funcioparke", nombre: "Funcioparke", rubro: "Entrenamiento funcional · La Plata", tipo: "demo" },
   { id: "mododiablo", nombre: "Modo Diablo", rubro: "Distribuidora de bebidas · CABA", tipo: "demo" },
 ];
 

@@ -150,13 +150,6 @@ export default function QueIncluye() {
               ))}
             </ul>
           </div>
-
-          <div className="mt-7 border-t border-border pt-5 flex items-center justify-between gap-3">
-            <p className="text-[14px] text-text-secondary">Un responsable y los especialistas que el trabajo necesita.</p>
-            <a href="#equipo" className="shrink-0 text-[14px] font-semibold text-accent hover:underline underline-offset-4">
-              Ver quién trabaja
-            </a>
-          </div>
         </div>
       </FadeUp>
 

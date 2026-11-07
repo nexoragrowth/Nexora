@@ -7,7 +7,6 @@ import Proyectos from "@/components/home/Proyectos";
 import Comparacion from "@/components/home/Comparacion";
 import ConIA from "@/components/home/ConIA";
 import QueIncluye from "@/components/home/QueIncluye";
-import Sistemas from "@/components/home/Sistemas";
 import PorQue from "@/components/home/PorQue";
 import Preguntas from "@/components/home/Preguntas";
 import Cierre from "@/components/home/Cierre";
@@ -29,7 +28,6 @@ export default function Home() {
         <Comparacion />
         <ConIA />
         <QueIncluye />
-        <Sistemas />
         <PorQue />
         <Preguntas />
         <Cierre />
